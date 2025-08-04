@@ -1,0 +1,11 @@
+# pyproject.toml
+
+[project]
+name = "EPISODEpy"
+version = "0.0.1"
+readme = "README.md"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
