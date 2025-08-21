@@ -19,4 +19,4 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Reference
 
-::: EPISODEpy.main
+::: EPISODEpy.semantic_representation
