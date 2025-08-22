@@ -1,3 +1,4 @@
 mkdocs
 mkdocstrings-python
 pytest
+python >= 3.9

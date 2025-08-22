@@ -1,5 +1,5 @@
 # API
 
-::: EPISODEpy
+::: episode
     options:
       show_submodules: true
