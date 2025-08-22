@@ -69,7 +69,7 @@ class C0TrajectoryPredictor(TrajectoryPredictorBase):
             second_derivative_end
         )  # shape (n_samples, n_bounded_motifs, 4)
 
-        xp = array_namespace(coefficients_bounded_part, timepoints)
+        xp = array_namespace(coefficients_bounded_part)
 
         if isinstance(timepoints, Sequence):
             timepoints, mask = utils.pad_and_mask(timepoints)
