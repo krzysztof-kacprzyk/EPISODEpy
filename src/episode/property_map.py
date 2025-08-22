@@ -94,8 +94,8 @@ class PropertyMapBase(ABC):
         if self.x0_index is not None:
             assert X0 is not None, "X0 must be defined if x0_index is provided"
             X0_numpy_filtered = X0[mask]
-        assert X0_numpy_filtered is not None, "X0_numpy_filtered must not be None"
-        return V_filtered, T_numpy_filtered, Y_numpy_filtered, X0_numpy_filtered # type: ignore
+
+        return V_filtered, T_numpy_filtered, Y_numpy_filtered, X0_numpy_filtered  # type: ignore
         
 
     def fit(self, V: FeatureDataset, T: NpArrayOrList, Y: NpArrayOrList, composition_map: CompositionMapBase):
