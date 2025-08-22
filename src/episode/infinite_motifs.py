@@ -1,3 +1,4 @@
+from __future__ import annotations
 from abc import ABC, abstractmethod
 from types import SimpleNamespace
 
@@ -40,11 +41,12 @@ class InfinitiveMotif(ABC):
     def predict(self, T):
         pass
 
-    def extract_properties_list(self):
+    @abstractmethod
+    def extract_properties_list(self) -> list:
         pass
 
     @abstractmethod
-    def num_network_properties(self):
+    def num_network_properties(self) -> int:
         pass
 
     def evaluate_from_network(self, T, properties, x0, y0, y0dt, y0dt2):
@@ -54,10 +56,6 @@ class InfinitiveMotif(ABC):
     def extract_properties_from_network(self, properties, x0, y0, y0dt, y0dt2):
         self.set_by_network(properties, x0, y0, y0dt, y0dt2)
         return self.cat(self.extract_properties_list(),dim=1)
-    
-    def extract_properties_from_network_shapes(self, properties, x0, y0, y0dt, y0dt2):
-        self.set_by_network(properties, x0, y0, y0dt, y0dt2, shapes=True)
-        return self.cat(self.extract_properties_shapes_list(),dim=1)
     
     def evaluate_from_properties(self, T, properties, x0, y0, y0dt, y0dt2):
         self.set_by_properties(properties, x0, y0, y0dt, y0dt2)

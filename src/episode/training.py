@@ -103,8 +103,10 @@ class PropertyModuleTrainer(L.LightningModule):
         return loss
 
     def configure_optimizers(self):
+        optimizer_class = self.config.optimizer
+        optimizer = optimizer_class(self.model.parameters(), **self.config.optimizer_params)
         # optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=self.config['weight_decay'])
-        optimizer = torch.optim.LBFGS(self.model.parameters(), lr=self.lr, history_size=100, max_iter=20, line_search_fn='strong_wolfe')
+        # optimizer = torch.optim.LBFGS(self.model.parameters(), lr=self.lr, history_size=100, max_iter=20, line_search_fn='strong_wolfe')
         # params=list()
         # params.extend(list(self.model.parameters()))
         # optimizer = LBFGSNew(self.model.parameters(), lr=self.lr, cost_use_gradient=True, history_size=100, max_iter=20)

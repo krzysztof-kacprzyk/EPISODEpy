@@ -123,7 +123,7 @@ class C0TrajectoryPredictor(TrajectoryPredictorBase):
         
         if properties.composition.is_bounded():
             # Due the sharp inequalities earlier, we need to add the last piece separately
-            coefficients = coefficients_bounded_part[:, i, :]
+            coefficients = coefficients_bounded_part[:, -1, :]
             values = cubic.evaluate_cubic(coefficients,T)
             Y += xp.where(T == knots[:,[-1]], values, 0)
 

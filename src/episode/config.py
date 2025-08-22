@@ -1,7 +1,11 @@
+from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Self, Sequence
 from episode.semantic_representation import Composition
 from copy import deepcopy
+import torch
+import torch.optim 
+
 class ConfigBase:
     """
     Base class for configuration management.
@@ -47,6 +51,8 @@ class PropertyMapConfig(ConfigBase):
         last_loss_coeff: float = 100.0,
         n_tune: int = 0,
         dtw: bool = False,
+        optimizer: type[torch.optim.Optimizer] = torch.optim.LBFGS,
+        optimizer_params: dict = {'lr': 1e-1, 'history_size':100, 'max_iter':20, 'line_search_fn':'strong_wolfe'}
     ):
         """
         Initialize the configuration for PropertyMapTorch.
@@ -60,6 +66,8 @@ class PropertyMapConfig(ConfigBase):
         self.last_loss_coeff = last_loss_coeff
         self.n_tune = n_tune
         self.dtw = dtw
+        self.optimizer = optimizer
+        self.optimizer_params = optimizer_params
 
 class DecisionTreeConfig:
     def __init__(
@@ -119,6 +127,8 @@ class TorchTrainerConfig:
         self.dis_loss_coeff_2 = property_map_config.dis_loss_coeff_2
         self.last_loss_coeff = property_map_config.last_loss_coeff
         self.n_tune = property_map_config.n_tune
+        self.optimizer = property_map_config.optimizer
+        self.optimizer_params = property_map_config.optimizer_params
 
         self.composition = composition
         self.n_features = n_features
@@ -141,7 +151,9 @@ class TorchTrainerConfig:
             dis_loss_coeff_1=self.dis_loss_coeff_1,
             dis_loss_coeff_2=self.dis_loss_coeff_2,
             last_loss_coeff=self.last_loss_coeff,
-            n_tune=self.n_tune
+            n_tune=self.n_tune,
+            optimizer=self.optimizer,
+            optimizer_params=self.optimizer_params
         )
         return TorchTrainerConfig(
             composition=self.composition,
