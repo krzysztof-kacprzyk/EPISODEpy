@@ -1,0 +1,6957 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API - My Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API";
+        var mkdocs_page_input_path = "api.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> My Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#episode">episode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.basis">basis</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.basis.OneHotBasisFunctions">OneHotBasisFunctions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.basis.OneHotBasisFunctions.compute">compute</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.basis.OneHotBasisFunctions.compute_single">compute_single</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.composition_map">composition_map</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.composition_map.CompositionMapBase">CompositionMapBase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.composition_map.CompositionMapBase.fit">fit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.composition_map.CompositionMapBase.get_specific_feature_ranges">get_specific_feature_ranges</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.composition_map.CompositionMapBase.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.composition_map.DecisionTreeCompositionMap">DecisionTreeCompositionMap</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.composition_map.DecisionTreeCompositionMap.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.composition_map.DecisionTreeCompositionMap.get_specific_feature_ranges">get_specific_feature_ranges</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.composition_map.DecisionTreeCompositionMap.predict_composition_indices">predict_composition_indices</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.config">config</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.config.ConfigBase">ConfigBase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.ConfigBase.copy">copy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.ConfigBase.from_dict">from_dict</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.ConfigBase.to_dict">to_dict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.config.DecisionTreeConfig">DecisionTreeConfig</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.DecisionTreeConfig.__init__">__init__</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.config.PropertyMapConfig">PropertyMapConfig</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.PropertyMapConfig.__init__">__init__</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.config.TorchTrainerConfig">TorchTrainerConfig</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.TorchTrainerConfig.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.config.TorchTrainerConfig.copy">copy</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.cubic">cubic</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.cubic.create_row">create_row</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.cubic.evaluate_cubic">evaluate_cubic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.cubic.first_derivative_at_end_from_cubic">first_derivative_at_end_from_cubic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.cubic.second_derivative_at_end_from_cubic">second_derivative_at_end_from_cubic</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.decision_tree">decision_tree</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier">DecisionTreeClassifier</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.continue_fit">continue_fit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.fit">fit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.get_predictions_at_leaves">get_predictions_at_leaves</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.get_updated_feature_ranges">get_updated_feature_ranges</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.predict">predict</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.predict_proba">predict_proba</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.DecisionTreeClassifier.print_tree">print_tree</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.decision_tree.TreeNode">TreeNode</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.decision_tree.TreeNode.__init__">__init__</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.gam">gam</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.gam.GAM">GAM</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.GAM.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.GAM.predict">predict</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.GAM.prune">prune</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.gam.ShapeFunction">ShapeFunction</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.__call__">__call__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.get_expected_value">get_expected_value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.is_constant">is_constant</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.maximum_value">maximum_value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.minimum_value">minimum_value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.range">range</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.gam.ShapeFunction.visualize">visualize</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.optimize_properties">optimize_properties</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.optimize_properties.ScipyOptimizationAlgorithm">ScipyOptimizationAlgorithm</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.optimize_properties.ScipyOptimizationAlgorithm.__init__">__init__</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.optimize_properties.calculate_score">calculate_score</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.optimize_properties.compute_t_last_finite_transition_point">compute_t_last_finite_transition_point</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.optimize_properties.from_parameters_to_raw_properties">from_parameters_to_raw_properties</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.optimize_properties.get_first_derivative_range">get_first_derivative_range</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.optimize_properties.transition_points_from_raw_properties">transition_points_from_raw_properties</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.property_map">property_map</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.CubicDerivativePredictor">CubicDerivativePredictor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.CubicDerivativePredictor.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.GAMBasedDerivativePredictor">GAMBasedDerivativePredictor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.GAMBasedDerivativePredictor.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.GAMBasedDerivativePredictor.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.GAMBasedInfiniteMotifPredictor">GAMBasedInfiniteMotifPredictor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.GAMBasedInfiniteMotifPredictor.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.GAMBasedInfiniteMotifPredictor.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.NDPropertyMap">NDPropertyMap</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.NDPropertyMap.init_property_map">init_property_map</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.NDPropertyMapBase">NDPropertyMapBase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.NDPropertyMapBase.init_property_map">init_property_map</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.PropertyFunction">PropertyFunction</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.PropertyFunction.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.PropertyMap">PropertyMap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.PropertyMapBase">PropertyMapBase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.PropertyMapBase.fit">fit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.PropertyMapBase.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.SinglePropertyMap">SinglePropertyMap</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.SinglePropertyMap.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.SinglePropertyMap.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.property_map.TransitionPointPredictor">TransitionPointPredictor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.TransitionPointPredictor.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.property_map.TransitionPointPredictor.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.semantic_predictor">semantic_predictor</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.semantic_predictor.SemanticPredictor">SemanticPredictor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_predictor.SemanticPredictor.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_predictor.SemanticPredictor.fit">fit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_predictor.SemanticPredictor.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.semantic_representation">semantic_representation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.semantic_representation.Composition">Composition</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_representation.Composition.create_composition">create_composition</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_representation.Composition.create_composition_library">create_composition_library</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.semantic_representation.Properties">Properties</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_representation.Properties.__init__">__init__</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.semantic_representation.SemanticRepresentation">SemanticRepresentation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_representation.SemanticRepresentation.__init__">__init__</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_representation.SemanticRepresentation.get_present_compositions">get_present_compositions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.semantic_representation.SemanticRepresentation.get_properties_by_composition">get_properties_by_composition</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.torch_model">torch_model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_model.DerivativeModule">DerivativeModule</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.DerivativeModule.predict">predict</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.DerivativeModule.predict_first_derivative_at_end">predict_first_derivative_at_end</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.DerivativeModule.predict_first_derivative_at_start">predict_first_derivative_at_start</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.DerivativeModule.predict_second_derivative_at_end">predict_second_derivative_at_end</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_model.FinalMotifPropertyModule">FinalMotifPropertyModule</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.FinalMotifPropertyModule.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_model.FullModel">FullModel</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.FullModel.forward">forward</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.FullModel.predict_from_cached_properties">predict_from_cached_properties</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.FullModel.predict_properties">predict_properties</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.ProcessedFeatures.__init__">__init__</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_model.PropertyModule">PropertyModule</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.PropertyModule.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_model.TransitionPointModule">TransitionPointModule</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.torch_model.TransitionPointModule.predict">predict</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.torch_utils">torch_utils</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_utils.calculate_cat_shape_functions">calculate_cat_shape_functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_utils.calculate_gams">calculate_gams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_utils.calculate_shape_functions_for_single_feature">calculate_shape_functions_for_single_feature</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.torch_utils.divide_B_cat_into_blocks">divide_B_cat_into_blocks</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.training">training</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.training.PropertyModuleTrainer">PropertyModuleTrainer</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#episode.training.PropertyModuleTrainer.prediction_loss">prediction_loss</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#episode.utils">utils</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.filter_by_mask">filter_by_mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.from_feature_index_to_cont_feature_index">from_feature_index_to_cont_feature_index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.get_first_derivative_range">get_first_derivative_range</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.get_tensors">get_tensors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.get_train_val_indices">get_train_val_indices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.linalg_solve_multiple_numpy">linalg_solve_multiple_numpy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.pad_and_mask">pad_and_mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.softmax_numpy">softmax_numpy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.transform_first_derivative">transform_first_derivative</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#episode.utils.transform_properties">transform_properties</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">My Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api">API</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="episode"></a>
+    <div class="doc doc-contents first">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.basis" class="doc doc-heading">
+            <code>basis</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.basis.OneHotBasisFunctions" class="doc doc-heading">
+            <code>OneHotBasisFunctions</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.basis.OneHotBasisFunctions.compute" class="doc doc-heading">
+            <code class="highlight language-python">compute(V, V_ranges)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the one-hot encoded basis functions for the given input and ranges.</p>
+
+
+<details class="parameters:" open>
+  <summary>Parameters:</summary>
+  <p>V: a numpy array of shape (n_samples, n_features)
+V_ranges: a list of tuples or sets representing ranges of the features</p>
+</details>
+
+<details class="returns:" open>
+  <summary>Returns:</summary>
+  <p>B: a numpy array of shape (n_samples, sum(n_unique_values))
+n_unique_values_dict: a dictionary mapping feature indices to the number of unique values in each feature</p>
+</details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.basis.OneHotBasisFunctions.compute_single" class="doc doc-heading">
+            <code class="highlight language-python">compute_single(V, V_ranges, feature_index)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args: 
+V: a numpy array of shape (n_samples, n_features)
+V_ranges: a list of tuples or sets representing ranges of the features
+feature_index: index of the feature to compute the one-hot encoding for</p>
+
+
+<details class="returns:" open>
+  <summary>Returns:</summary>
+  <p>B: a numpy array of shape (n_samples, n_unique_values)</p>
+</details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.composition_map" class="doc doc-heading">
+            <code>composition_map</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.composition_map.CompositionMapBase" class="doc doc-heading">
+            <code>CompositionMapBase</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.composition_map.CompositionMapBase.fit" class="doc doc-heading">
+            <code class="highlight language-python">fit(V, T, Y, composition_scores=None)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Fit the composition map model.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="episode.dataset.FeatureDataset">FeatureDataset</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The feature dataset containing the static features.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>T</code></b>
+                  (<code><span title="episode.types.NpArrayOrList">NpArrayOrList</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The target values. Shape should be a list of np.ndarray or a single np.ndarray of shape (n_samples,n_timesteps).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>Y</code></b>
+                  (<code><span title="episode.types.NpArrayOrList">NpArrayOrList</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The additional input features. Shape should be a list of np.ndarray or a single np.ndarray of shape (n_samples,n_timesteps).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>composition_scores</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The composition scores. Shape should be (n_samples, n_compositions), by default None</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>None</code>
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.composition_map.CompositionMapBase.get_specific_feature_ranges" class="doc doc-heading">
+            <code class="highlight language-python">get_specific_feature_ranges(X_ranges, composition_index)</code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get the range of the features for a specific composition</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>X_ranges</code></b>
+                  (<code>list[tuple[float, float] | set[int]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The ranges of the features for all compositions.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>composition_index</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The index of the composition to get the feature ranges for.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>list[tuple[float, float] | set[int]]</code>
+              –
+              <div class="doc-md-description">
+                <p>The ranges of the features for the specified composition.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.composition_map.CompositionMapBase.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the composition for the given input.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="episode.dataset.FeatureDataset">FeatureDataset</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The feature dataset containing the static features.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>include_indices</code></b>
+                  (<code>bool</code>)
+              –
+              <div class="doc-md-description">
+                <p>Whether to include the indices of the compositions, by default False</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a>] | <span title="typing.Tuple">Tuple</span>[<span title="typing.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a>], <span title="numpy.ndarray">ndarray</span>]</code>
+              –
+              <div class="doc-md-description">
+                <p>If <code>include_indices</code> is False, returns a sequence of Composition objects.
+If <code>include_indices</code> is True, returns a tuple containing the sequence of Composition objects and the indices of the compositions.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.composition_map.DecisionTreeCompositionMap" class="doc doc-heading">
+            <code>DecisionTreeCompositionMap</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.composition_map.CompositionMapBase" href="#episode.composition_map.CompositionMapBase">CompositionMapBase</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.composition_map.DecisionTreeCompositionMap.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(composition_library, t_range, x0_index=None, train_on_whole_trajectory=True, dt_config=DecisionTreeConfig(), verbose=False, seed=0)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+composition_library: a sequence of Composition objects
+dt_config: a dictionary with the configuration for the decision tree classifier
+categorical_features_indices: a sequence of integers representing the indices of the categorical features
+x0_index: an integer or float representing the index of the initial condition, or None if not included
+verbose: a boolean indicating whether to print the decision tree structure</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.composition_map.DecisionTreeCompositionMap.get_specific_feature_ranges" class="doc doc-heading">
+            <code class="highlight language-python">get_specific_feature_ranges(X_ranges, composition_index)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get the range of the features for a specific composition.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>X_ranges</code></b>
+                  (<code>list[tuple[float, float] | set[int]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The ranges of the features for all compositions.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>composition_index</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The index of the composition to get the feature ranges for.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>list[tuple[float, float] | set[int]]</code>
+              –
+              <div class="doc-md-description">
+                <p>The ranges of the features for the specified composition.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.composition_map.DecisionTreeCompositionMap.predict_composition_indices" class="doc doc-heading">
+            <code class="highlight language-python">predict_composition_indices(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the composition indices for the given input.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="episode.dataset.FeatureDataset">FeatureDataset</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The feature dataset containing the static features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The predicted composition indices. Shape will be (n_samples,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.config" class="doc doc-heading">
+            <code>config</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.config.ConfigBase" class="doc doc-heading">
+            <code>ConfigBase</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Base class for configuration management.
+Provides methods to update configurations and validate keys.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.ConfigBase.copy" class="doc doc-heading">
+            <code class="highlight language-python">copy()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a copy of the configuration instance.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.ConfigBase.from_dict" class="doc doc-heading">
+            <code class="highlight language-python">from_dict(config_dict)</code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a ConfigBase instance from a dictionary.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.ConfigBase.to_dict" class="doc doc-heading">
+            <code class="highlight language-python">to_dict()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convert the configuration to a dictionary.</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.config.DecisionTreeConfig" class="doc doc-heading">
+            <code>DecisionTreeConfig</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.DecisionTreeConfig.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(max_depth=3, min_relative_gain_to_split=0.01, min_samples_leaf=10, relative_motif_cost=0.01, tune_depth=False)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the configuration for the decision tree.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>max_depth</code></b>
+                  (<code>int</code>, default:
+                      <code>3</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Maximum depth of the tree, by default 3</p>
+              </div>
+            </li>
+            <li>
+              <b><code>min_relative_gain_to_split</code></b>
+                  (<code>float</code>, default:
+                      <code>0.01</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Minimum relative gain to split, by default 1e-2</p>
+              </div>
+            </li>
+            <li>
+              <b><code>min_samples_leaf</code></b>
+                  (<code>int</code>, default:
+                      <code>10</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Minimum samples per leaf, by default 10</p>
+              </div>
+            </li>
+            <li>
+              <b><code>relative_motif_cost</code></b>
+                  (<code>float</code>, default:
+                      <code>0.01</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Relative cost of motif, by default 1e-2</p>
+              </div>
+            </li>
+            <li>
+              <b><code>tune_depth</code></b>
+                  (<code>bool</code>, default:
+                      <code>False</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Whether to tune the depth of the tree, by default False</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.config.PropertyMapConfig" class="doc doc-heading">
+            <code>PropertyMapConfig</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.config.ConfigBase" href="#episode.config.ConfigBase">ConfigBase</a></code></p>
+
+
+        <p>Configuration class for PropertyMapTorch.
+Inherits from ConfigBase to manage configuration settings.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.PropertyMapConfig.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(n_epochs=1000, batch_size=256, lr=0.1, device='cpu', dis_loss_coeff_1=0.01, dis_loss_coeff_2=1e-06, last_loss_coeff=100.0, n_tune=0, dtw=False, optimizer=torch.optim.LBFGS, optimizer_params={'lr': 0.1, 'history_size': 100, 'max_iter': 20, 'line_search_fn': 'strong_wolfe'})</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the configuration for PropertyMapTorch.</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.config.TorchTrainerConfig" class="doc doc-heading">
+            <code>TorchTrainerConfig</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Configuration class for the PyTorch trainer.
+Inherits from ConfigBase to manage configuration settings.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.TorchTrainerConfig.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(composition, n_features, categorical_features_indices, cat_n_unique_dict, x0_index, t_range, n_basis_functions, property_map_config, seed)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the configuration for the PyTorch trainer.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.config.TorchTrainerConfig.copy" class="doc doc-heading">
+            <code class="highlight language-python">copy()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a copy of the configuration instance.</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.cubic" class="doc doc-heading">
+            <code>cubic</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.cubic.create_row" class="doc doc-heading">
+            <code class="highlight language-python">create_row(coordinate, order)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a row of polynomial features for a given coordinate.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>coordinate</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Coordinate for which to create the polynomial features. Should be of shape (batch_size, 2).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>order</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>Order of the polynomial features. 0 for the function, 1 for the first derivative, and 2 for the second derivative.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Row of polynomial features for the given coordinate and order. Shape: (batch_size, 4)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the order is not 0, 1, or 2.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.cubic.evaluate_cubic" class="doc doc-heading">
+            <code class="highlight language-python">evaluate_cubic(coefficients, x, derivative_order=0)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Evaluate a cubic polynomial at x (or its derivatives).</p>
+
+
+<details class="parameters:" open>
+  <summary>Parameters:</summary>
+  <p>coefficients : np.ndarray
+    Coefficients of the cubic polynomial. Should be of shape (batch_size,4)
+    The coefficients are ordered as [a,b,c,d] where the polynomial is a<em>x^3 + b</em>x^2 + c*x + d
+x : np.ndarray
+    Input data. Should be (batch_size,n_time_points)
+derivative_order : int
+    Order of derivative to evaluate.</p>
+</details>
+
+<details class="returns:" open>
+  <summary>Returns:</summary>
+  <p>np.ndarray    <br />
+    Value of the cubic polynomial at x. Should be (batch_size,n_time_points)</p>
+</details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.cubic.first_derivative_at_end_from_cubic" class="doc doc-heading">
+            <code class="highlight language-python">first_derivative_at_end_from_cubic(coefficients, t_end)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p><em>summary</em></p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>coefficients</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Coefficients of the cubics of shape (batch_size, n_bounded_motifs, 4)</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t_end</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Time points of the final bounded transition points of shape (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>First derivatives at the end of the cubics of shape (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.cubic.second_derivative_at_end_from_cubic" class="doc doc-heading">
+            <code class="highlight language-python">second_derivative_at_end_from_cubic(coefficients, t_end)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the second derivative at the end of the cubic.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>coefficients</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Coefficients of the cubics of shape (batch_size, n_bounded_motifs, 4)</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t_end</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Time points of the final bounded transition points of shape (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Second derivatives at the end of the cubics of shape (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.decision_tree" class="doc doc-heading">
+            <code>decision_tree</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.decision_tree.DecisionTreeClassifier" class="doc doc-heading">
+            <code>DecisionTreeClassifier</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>CART Decision Tree for classification with support for:
+  - Numeric features
+  - Categorical features
+  - One-hot encoded labels</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(max_depth=5, min_samples_split=2, categorical_features=None, min_gini_impurity=1e-07, metric_name='gini', offset=0.001, min_samples_leaf=1)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>max_depth</code></b>
+                  (<code>int</code>, default:
+                      <code>5</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The maximum depth of the tree.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>min_samples_split</code></b>
+                  (<code>int</code>, default:
+                      <code>2</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The minimum number of samples required to split an internal node.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>categorical_features</code></b>
+                  (<code>list of int</code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>List of feature indices that are categorical. By default, None
+means all features are treated as numeric.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.continue_fit" class="doc doc-heading">
+            <code class="highlight language-python">continue_fit(X_new, Y_new)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Incrementally fit the tree with new data (X_new, Y_new).</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.fit" class="doc doc-heading">
+            <code class="highlight language-python">fit(X, Y)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Fit the decision tree to the data.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>X</code></b>
+                  (<code>np.ndarray of shape (n_samples, n_features)</code>)
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+            <li>
+              <b><code>Y</code></b>
+                  (<code>np.ndarray of shape (n_samples, n_classes)</code>)
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.get_predictions_at_leaves" class="doc doc-heading">
+            <code class="highlight language-python">get_predictions_at_leaves()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get a set of all possible predictions</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.get_updated_feature_ranges" class="doc doc-heading">
+            <code class="highlight language-python">get_updated_feature_ranges(X_ranges)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get the updated feature ranges for the new tree.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(X)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict class labels for each sample in X.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>X</code></b>
+                  (<code>np.ndarray of shape (n_samples, n_features)</code>)
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>np.ndarray of shape (n_samples,)</code>
+              –
+              <div class="doc-md-description">
+                <p>The predicted class labels (as integers).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.predict_proba" class="doc doc-heading">
+            <code class="highlight language-python">predict_proba(X)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict class probabilities for each sample in X.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>X</code></b>
+                  (<code>np.ndarray of shape (n_samples, n_features)</code>)
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>np.ndarray of shape (n_samples, n_classes)</code>
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.DecisionTreeClassifier.print_tree" class="doc doc-heading">
+            <code class="highlight language-python">print_tree(node=None, depth=0)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Recursively print the structure of the decision tree.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>node</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.decision_tree.TreeNode" href="#episode.decision_tree.TreeNode">TreeNode</a></code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The current node in the tree. If None, starts from the root.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>depth</code></b>
+                  (<code>int</code>, default:
+                      <code>0</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Current depth of the tree, used for indentation.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.decision_tree.TreeNode" class="doc doc-heading">
+            <code>TreeNode</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>A simple class representing a node in the decision tree.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.decision_tree.TreeNode.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(feature_index=None, split_value=None, left=None, right=None, value=None, is_categorical=False)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>feature_index</code></b>
+                  (<code>int</code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The index of the feature used for splitting.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>split_value</code></b>
+                  (<code>float or any(threshold or category)</code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>If is_categorical=False, this is the numeric threshold.
+If is_categorical=True, this is the specific category.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>left</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.decision_tree.TreeNode" href="#episode.decision_tree.TreeNode">TreeNode</a></code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Left child node.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>right</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.decision_tree.TreeNode" href="#episode.decision_tree.TreeNode">TreeNode</a></code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Right child node.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>value</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The class distribution (probabilities) of the leaf node.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>is_categorical</code></b>
+                  (<code>bool</code>, default:
+                      <code>False</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Whether the feature at feature_index is categorical.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.gam" class="doc doc-heading">
+            <code>gam</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.gam.GAM" class="doc doc-heading">
+            <code>GAM</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.GAM.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(shape_functions, bias)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+shape_functions: a list of ShapeFunction, each shape function is a function that takes a numpy array
+bias: a scalar</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.GAM.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(X, reduce=True)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the value of the GAM</p>
+<p>Args:
+X: a numpy array of shape (batch_size, n_features)</p>
+<p>Returns:
+a numpy array of shape (batch_size,)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.GAM.prune" class="doc doc-heading">
+            <code class="highlight language-python">prune(threshold=1e-05)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Prune the shape functions whose range is smaller than the threshold</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.gam.ShapeFunction" class="doc doc-heading">
+            <code>ShapeFunction</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.__call__" class="doc doc-heading">
+            <code class="highlight language-python">__call__(x)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+x: a numpy array of shape (batch_size,)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.get_expected_value" class="doc doc-heading">
+            <code class="highlight language-python">get_expected_value()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the expected value of the shape function</p>
+<p>Returns:
+a scalar</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.is_constant" class="doc doc-heading">
+            <code class="highlight language-python">is_constant()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Check if the shape function is constant</p>
+<p>Returns:
+a boolean</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.maximum_value" class="doc doc-heading">
+            <code class="highlight language-python">maximum_value()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the maximum value of the shape function</p>
+<p>Returns:
+a scalar</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.minimum_value" class="doc doc-heading">
+            <code class="highlight language-python">minimum_value()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the minimum value of the shape function</p>
+<p>Returns:
+a scalar</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.range" class="doc doc-heading">
+            <code class="highlight language-python">range()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the range of the shape function</p>
+<p>Returns:
+a tuple (min, max)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.gam.ShapeFunction.visualize" class="doc doc-heading">
+            <code class="highlight language-python">visualize(fig=None)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Creates a visualization of the shape function. It consists of two axes objects: one for the shape function and one for the histogram of the data.</p>
+<p>Returns:
+a figure object</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.optimize_properties" class="doc doc-heading">
+            <code>optimize_properties</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.optimize_properties.ScipyOptimizationAlgorithm" class="doc doc-heading">
+            <code>ScipyOptimizationAlgorithm</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="episode.optimize_properties.OptimizationAlgorithm">OptimizationAlgorithm</span></code></p>
+
+
+        <p>Optimization algorithm using SciPy's minimize function.
+This class allows for different optimization methods to be specified.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.optimize_properties.ScipyOptimizationAlgorithm.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(method='L-BFGS-B')</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>method</code></b>
+                  (<code>str</code>, default:
+                      <code>&#39;L-BFGS-B&#39;</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The optimization method to use. Defaults to 'L-BFGS-B'.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.optimize_properties.calculate_score" class="doc doc-heading">
+            <code class="highlight language-python">calculate_score(composition, t_range, t, x, x0, optimization_alg, loss_fn, train_on_all=False, evaluate_on_all=True, train_size=0.8, seed=0)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the score for the given composition and data.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition object containing motif information.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t_range</code></b>
+                  (<code><span title="typing.Tuple">Tuple</span>[float, float]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The time range for the evaluation.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The time points for the evaluation. Shape (n_time_points,).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>x</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The state variables for the evaluation. Shape (n_time_points).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>x0</code></b>
+                  (<code><span title="typing.Union">Union</span>[float, None]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The initial state variable, if applicable.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>optimization_alg</code></b>
+                  (<code><span title="episode.optimize_properties.OptimizationAlgorithm">OptimizationAlgorithm</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The optimization algorithm to use.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>loss_fn</code></b>
+                  (<code><span title="typing.Callable">Callable</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The loss function to minimize. Signature should be <code>loss_fn(x_pred, x_true) -&gt; float</code> or <code>loss_fn(x_pred, x_true) -&gt; np.ndarray</code>.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>train_on_all</code></b>
+                  (<code>bool</code>, default:
+                      <code>False</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Whether to train on all available data, by default False.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>evaluate_on_all</code></b>
+                  (<code>bool</code>, default:
+                      <code>True</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Whether to evaluate on all available data, by default True.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>train_size</code></b>
+                  (<code>float</code>, default:
+                      <code>0.8</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The proportion of data to use for training, by default 0.8.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>seed</code></b>
+                  (<code>int</code>, default:
+                      <code>0</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The random seed for reproducibility, by default 0.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Tuple">Tuple</span>[float, <a class="autorefs autorefs-internal" title="episode.semantic_representation.Properties" href="#episode.semantic_representation.Properties">Properties</a>]</code>
+              –
+              <div class="doc-md-description">
+                <p>The loss value and the properties object containing the optimized parameters.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.optimize_properties.compute_t_last_finite_transition_point" class="doc doc-heading">
+            <code class="highlight language-python">compute_t_last_finite_transition_point(composition, t_range, arguments, t_max)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the last finite transition point in time based on the composition and arguments.
+If the composition is bounded, it returns the end of the time range.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition object containing motif information.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t_range</code></b>
+                  (<code><span title="typing.Tuple">Tuple</span>[float, float]</code>)
+              –
+              <div class="doc-md-description">
+                <p>The time range for the evaluation.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>arguments</code></b>
+                  (<code>dict</code>)
+              –
+              <div class="doc-md-description">
+                <p>A dictionary containing the arguments, including 't_last_finite_transition_point'.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t_max</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>The maximum time point in the data.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>float</code>
+              –
+              <div class="doc-md-description">
+                <p>The last finite transition point in time.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.optimize_properties.from_parameters_to_raw_properties" class="doc doc-heading">
+            <code class="highlight language-python">from_parameters_to_raw_properties(parameters, dictionary)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts a flat array of parameters into a dictionary of arguments based on the provided mapping.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>parameters</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A flat array of parameters.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>dictionary</code></b>
+                  (<code>dict</code>)
+              –
+              <div class="doc-md-description">
+                <p>A mapping from argument names to their corresponding indices in the parameters array.
+key is argument name such as "horizontal_values", "vertical_values", etc.
+value is a tuple indicating the start and end indices in the parameters array, or None if not applicable.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>dict</code>
+              –
+              <div class="doc-md-description">
+                <p>A dictionary mapping argument names to their corresponding values.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.optimize_properties.get_first_derivative_range" class="doc doc-heading">
+            <code class="highlight language-python">get_first_derivative_range(composition, motif_index, point1, point2, which_point)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get the range of the first derivative for a given motif and transition points.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition object containing motif information.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>motif_index</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>Index of the motif in the composition.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>point1</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>numpy array of shape (2,) representing the first point (time, value).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>point2</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>numpy array of shape (2,) representing the second point (time, value).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>which_point</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>'left' or 'right' indicating which point to consider for the derivative.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Tuple">Tuple</span>[float, float]</code>
+              –
+              <div class="doc-md-description">
+                <p>The range of the first derivative at the specified point.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.optimize_properties.transition_points_from_raw_properties" class="doc doc-heading">
+            <code class="highlight language-python">transition_points_from_raw_properties(composition, horizontal_values, vertical_values, t_last_finite_transition_point, x0, t_range)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts raw properties into transition points.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>horizontal_values</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The horizontal shifts betweet transition points. 1D array</p>
+              </div>
+            </li>
+            <li>
+              <b><code>vertical_values</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The vertical shifts between transition points. 1D array</p>
+              </div>
+            </li>
+            <li>
+              <b><code>t_last_finite_transition_point</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>The last finite transition point in time.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>x0</code></b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>The initial state variable.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The calculated transition points of shape (num_transition_points, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.property_map" class="doc doc-heading">
+            <code>property_map</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.CubicDerivativePredictor" class="doc doc-heading">
+            <code>CubicDerivativePredictor</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.property_map.PropertyFunction" href="#episode.property_map.PropertyFunction">PropertyFunction</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.CubicDerivativePredictor.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the value of the derivative based on the cubic.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A numpy array of shape (batch_size, n_features) containing the input features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>A numpy array containing the predicted values for the specified order.
+Shape is (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.GAMBasedDerivativePredictor" class="doc doc-heading">
+            <code>GAMBasedDerivativePredictor</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.property_map.PropertyFunction" href="#episode.property_map.PropertyFunction">PropertyFunction</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.GAMBasedDerivativePredictor.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(composition, gam, boundary, order, transition_point_predictors)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the DerivativePredictor with a dictionary of predictors.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>gam</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.gam.GAM" href="#episode.gam.GAM">GAM</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The GAM instance used for predictions.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>boundary</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The boundary to predict ('start' or 'end').</p>
+              </div>
+            </li>
+            <li>
+              <b><code>order</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The order of the derivative to predict (1 or 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.GAMBasedDerivativePredictor.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the value of the derivative.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A numpy array of shape (batch_size, n_features) containing the input features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>A numpy array containing the predicted values for the specified boundary and order.
+Shape is (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.GAMBasedInfiniteMotifPredictor" class="doc doc-heading">
+            <code>GAMBasedInfiniteMotifPredictor</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.property_map.PropertyFunction" href="#episode.property_map.PropertyFunction">PropertyFunction</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.GAMBasedInfiniteMotifPredictor.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(composition, gams, property_index, last_value_predictor, first_derivative_at_end_predictor)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the GAMBasedInfiniteMotifPredictor.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.GAMBasedInfiniteMotifPredictor.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the value of an infinite motif property.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A numpy array of shape (batch_size, n_features) containing the input features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>A numpy array containing the predicted values for the specified infinite motif property.
+Shape is (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.NDPropertyMap" class="doc doc-heading">
+            <code>NDPropertyMap</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.property_map.NDPropertyMapBase" href="#episode.property_map.NDPropertyMapBase">NDPropertyMapBase</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.NDPropertyMap.init_property_map" class="doc doc-heading">
+            <code class="highlight language-python">init_property_map(m)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the 1D property map.</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.NDPropertyMapBase" class="doc doc-heading">
+            <code>NDPropertyMapBase</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.NDPropertyMapBase.init_property_map" class="doc doc-heading">
+            <code class="highlight language-python">init_property_map(m)</code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the 1D property map.</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.PropertyFunction" class="doc doc-heading">
+            <code>PropertyFunction</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.PropertyFunction.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the output for a given input.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>X</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Input data of shape (n_samples, n_features).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted output of shape (n_samples,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.PropertyMap" class="doc doc-heading">
+            <code>PropertyMap</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.property_map.PropertyMapBase" href="#episode.property_map.PropertyMapBase">PropertyMapBase</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.PropertyMapBase" class="doc doc-heading">
+            <code>PropertyMapBase</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.PropertyMapBase.fit" class="doc doc-heading">
+            <code class="highlight language-python">fit(V, T, Y, composition_map)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Fit the semantic predictor to the data</p>
+
+
+<details class="parameters:" open>
+  <summary>Parameters:</summary>
+  <p>V: FeatureDataset
+    The input feature dataset.
+T: NpArrayOrList
+    The target values.
+Y: NpArrayOrList
+    The additional target values.</p>
+</details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.PropertyMapBase.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(composition, V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the properties for a given composition and input features.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition for which to predict properties.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="episode.dataset.FeatureDataset">FeatureDataset</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A dataset containing the input features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Properties" href="#episode.semantic_representation.Properties">Properties</a></code>
+              –
+              <div class="doc-md-description">
+                <p>An instance of Properties containing the predicted properties.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.SinglePropertyMap" class="doc doc-heading">
+            <code>SinglePropertyMap</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.SinglePropertyMap.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(composition, transition_point_predictor, derivative_predictor, infinite_motif_predictor)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+composition: a tuple of strings representing the composition
+transition_point_predictor: a dictionary with keys (transition_point_index: int,coordinate: {'x','t'}) and values of type GAM
+derivative_predictor: a dictionary with keys (boundary: {'start','end'},order: {1,2}) and values of type GAM
+infinite_motif_predictor: a list of GAM</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.SinglePropertyMap.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the properties for a given input.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A numpy array of shape (batch_size, n_features) containing the input features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Properties" href="#episode.semantic_representation.Properties">Properties</a></code>
+              –
+              <div class="doc-md-description">
+                <p>An instance of Properties containing the predicted properties.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.property_map.TransitionPointPredictor" class="doc doc-heading">
+            <code>TransitionPointPredictor</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="episode.property_map.PropertyFunction" href="#episode.property_map.PropertyFunction">PropertyFunction</a></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.TransitionPointPredictor.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(gam)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>transition_point_module</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.TransitionPointModule" href="#episode.torch_model.TransitionPointModule">TransitionPointModule</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The module that predicts the transition points.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>transition_point_index</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The index of the transition point to predict.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>coordinate</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The coordinate to predict ('x' or 't').</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.property_map.TransitionPointPredictor.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p><em>summary</em></p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>V</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>A numpy array of shape (batch_size, n_features) containing the input features.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>A numpy array containing the predicted values for the specified transition point and coordinate.
+Shape is (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.semantic_predictor" class="doc doc-heading">
+            <code>semantic_predictor</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.semantic_predictor.SemanticPredictor" class="doc doc-heading">
+            <code>SemanticPredictor</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_predictor.SemanticPredictor.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(composition_map, property_map)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+compostion_map: a CompositionMap object
+property_maps: a dictionary with keys (composition: tuple of strings) and values of type SinglePropertyMap
+t_range: a tuple of floats representing the range of the time variable</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_predictor.SemanticPredictor.fit" class="doc doc-heading">
+            <code class="highlight language-python">fit(V, T, Y)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Fit the semantic predictor to the data</p>
+
+
+<details class="parameters:" open>
+  <summary>Parameters:</summary>
+  <p>V: FeatureDataset
+    The input feature dataset.
+T: NpArrayOrList
+    The target values.
+Y: NpArrayOrList
+    The additional target values.</p>
+</details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_predictor.SemanticPredictor.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(V)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the semantic representation</p>
+<p>Args:
+V: a numpy array of shape (batch_size, n_features)</p>
+<p>Returns:
+a list of SemanticRepresentation objects</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.semantic_representation" class="doc doc-heading">
+            <code>semantic_representation</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.semantic_representation.Composition" class="doc doc-heading">
+            <code>Composition</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_representation.Composition.create_composition" class="doc doc-heading">
+            <code class="highlight language-python">create_composition(motifs)</code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a Composition object from a sequence of motifs.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>motifs</code></b>
+                  (<code><span title="typing.Tuple">Tuple</span>[str, ...] | <span title="typing.Sequence">Sequence</span>[str]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A sequence of motif strings.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>
+              –
+              <div class="doc-md-description">
+                <p>A Composition object representing the motifs.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_representation.Composition.create_composition_library" class="doc doc-heading">
+            <code class="highlight language-python">create_composition_library(list_of_motifs)</code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a library of Composition objects from a list of motifs.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>list_of_motifs</code></b>
+                  (<code><span title="typing.Sequence">Sequence</span>[<span title="typing.Tuple">Tuple</span>[str, ...]] | <span title="typing.Sequence">Sequence</span>[<span title="typing.Sequence">Sequence</span>[str]]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A sequence of sequences of motif strings.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a>]</code>
+              –
+              <div class="doc-md-description">
+                <p>A list of Composition objects representing the motifs.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.semantic_representation.Properties" class="doc doc-heading">
+            <code>Properties</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_representation.Properties.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(engine, composition, transition_points, first_derivative_start, first_derivative_end, second_derivative_end, unbounded_motif_properties=None, unbounded_motif_properties_raw=False)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the Properties class.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>engine</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>The computational engine to use ('pytorch' or 'numpy').</p>
+              </div>
+            </li>
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Composition object containing motif information.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>transition_points</code></b>
+                  (<code><span title="typing.Union">Union</span>[<span title="numpy.ndarray">ndarray</span>, <span title="torch.Tensor">Tensor</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>Array or tensor of transition points of shape (n_samples, n_transition_points,2).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>first_derivative_start</code></b>
+                  (<code><span title="typing.Union">Union</span>[<span title="numpy.ndarray">ndarray</span>, <span title="torch.Tensor">Tensor</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>Array or tensor of first derivative start points of shape (n_samples, 1).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>first_derivative_end</code></b>
+                  (<code><span title="typing.Union">Union</span>[<span title="numpy.ndarray">ndarray</span>, <span title="torch.Tensor">Tensor</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>Array or tensor of first derivative end points of shape (n_samples, 1).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>second_derivative_end</code></b>
+                  (<code><span title="typing.Union">Union</span>[<span title="numpy.ndarray">ndarray</span>, <span title="torch.Tensor">Tensor</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>Array or tensor of second derivative end points of shape (n_samples, 1).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>unbounded_motif_properties</code></b>
+                  (<code><span title="typing.Union">Union</span>[None, <span title="numpy.ndarray">ndarray</span>, <span title="torch.Tensor">Tensor</span>]</code>, default:
+                      <code>None</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Properties for unbounded motifs, if applicable. Defaults to None.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the engine is not 'pytorch' or 'numpy'.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.semantic_representation.SemanticRepresentation" class="doc doc-heading">
+            <code>SemanticRepresentation</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_representation.SemanticRepresentation.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(compositions, predicted_composition_indices, engine='numpy')</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the SemanticRepresentation class.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>compositions</code></b>
+                  (<code><span title="typing.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A sequence of Composition objects.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>predicted_composition_indices</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>An array of predicted composition indices.
+Should be of shape (n_samples,) and contain integers representing indices of compositions.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>engine</code></b>
+                  (<code>str</code>, default:
+                      <code>&#39;numpy&#39;</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The computational engine to use ('pytorch' or 'numpy'), by default 'numpy'</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_representation.SemanticRepresentation.get_present_compositions" class="doc doc-heading">
+            <code class="highlight language-python">get_present_compositions()</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get a list of compositions that have associated properties.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Sequence">Sequence</span>[<a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a>]</code>
+              –
+              <div class="doc-md-description">
+                <p>A sequence of compositions with properties.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.semantic_representation.SemanticRepresentation.get_properties_by_composition" class="doc doc-heading">
+            <code class="highlight language-python">get_properties_by_composition(composition)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get properties for a specific composition.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition for which to retrieve properties.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Properties" href="#episode.semantic_representation.Properties">Properties</a></code>
+              –
+              <div class="doc-md-description">
+                <p>The properties associated with the specified composition.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.torch_model" class="doc doc-heading">
+            <code>torch_model</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.torch_model.DerivativeModule" class="doc doc-heading">
+            <code>DerivativeModule</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.DerivativeModule.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(features, finite_coordinates)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the derivatives based on the processed features and finite coordinates.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>finite_coordinates</code></b>
+                  (<code><span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Finite coordinates tensor of shape (batch_size, n_coordinates, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>tuple</code>
+              –
+              <div class="doc-md-description">
+                <p>A tuple containing three tensors: the predicted first derivative at the start, 
+the predicted first derivative at the end, and the predicted second derivative at the end.
+Each tensor has shape (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.DerivativeModule.predict_first_derivative_at_end" class="doc doc-heading">
+            <code class="highlight language-python">predict_first_derivative_at_end(features, transition_points)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the first derivative at the end of the transition.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>transition_points</code></b>
+                  (<code><span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Transition points tensor of shape (batch_size, n_transition_points, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted first derivative at the end of the transition.
+Shape: (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the first_derivative_at_end_status is unknown.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.DerivativeModule.predict_first_derivative_at_start" class="doc doc-heading">
+            <code class="highlight language-python">predict_first_derivative_at_start(features, transition_points)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the first derivative at the start of the transition.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>transition_points</code></b>
+                  (<code><span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Transition points tensor of shape (batch_size, n_transition_points, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted first derivative at the start of the transition.
+Shape: (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the first_derivative_at_start_status is unknown.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.DerivativeModule.predict_second_derivative_at_end" class="doc doc-heading">
+            <code class="highlight language-python">predict_second_derivative_at_end(features)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the second derivative at the end of the transition.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted second derivative at the end of the transition.
+Shape: (batch_size,)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the second_derivative_at_end_status is unknown.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.torch_model.FinalMotifPropertyModule" class="doc doc-heading">
+            <code>FinalMotifPropertyModule</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.FinalMotifPropertyModule.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(processed_features, transition_points, first_derivative_at_end, second_derivative_at_end)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the generalized additive model (GAM) for the given processed features.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>processed_features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>An instance of ProcessedFeatures containing the input features.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>transition_points</code></b>
+                  (<code><span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Transition points tensor of shape (batch_size, n_transition_points, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The predicted GAM values.
+Shape: (batch_size, num_properties)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.torch_model.FullModel" class="doc doc-heading">
+            <code>FullModel</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.FullModel.forward" class="doc doc-heading">
+            <code class="highlight language-python">forward(processed_features, T)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Forward pass of the model.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>processed_features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>T</code></b>
+                  (<code><span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Time tensor of shape (batch_size, n_max_timesteps).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Output tensor of shape (batch_size, n_output_features)</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.FullModel.predict_from_cached_properties" class="doc doc-heading">
+            <code class="highlight language-python">predict_from_cached_properties(T)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the trajectory from cached properties.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>T</code></b>
+                  (<code><span title="torch.Tensor">Tensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Time tensor of shape (batch_size, n_max_timesteps).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Output tensor of shape (batch_size, n_output_features).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.FullModel.predict_properties" class="doc doc-heading">
+            <code class="highlight language-python">predict_properties(processed_features)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the properties based on the processed features.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>processed_features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Properties" href="#episode.semantic_representation.Properties">Properties</a></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted properties of the trajectories.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.torch_model.ProcessedFeatures" class="doc doc-heading">
+            <code>ProcessedFeatures</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.ProcessedFeatures.__init__" class="doc doc-heading">
+            <code class="highlight language-python">__init__(B, B_cat, categorical_features_indices, cat_n_unique_dict, X0=None, x0_index=None)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Processed features for the model.</p>
+<p>Args:
+B: input tensor of shape (batch_size, n_cont_features, n_basis_functions)
+B_cat: input tensor of shape (batch_size, sum(cat_n_unique_dict))
+categorical_features_indices: list of indices for categorical features
+cat_n_unique_dict: dictionary with the number of unique values for each categorical feature
+X0: initial condition tensor of shape (batch_size,1) or None
+x0_index: index of the initial condition in the feature vector, or a float value to set the initial condition directly</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.torch_model.PropertyModule" class="doc doc-heading">
+            <code>PropertyModule</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.PropertyModule.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(processed_features)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the properties based on the processed features.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>processed_features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Properties" href="#episode.semantic_representation.Properties">Properties</a></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted properties of the trajectories</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.torch_model.TransitionPointModule" class="doc doc-heading">
+            <code>TransitionPointModule</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.torch_model.TransitionPointModule.predict" class="doc doc-heading">
+            <code class="highlight language-python">predict(features)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Predict the transition points based on the processed features.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>features</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.torch_model.ProcessedFeatures" href="#episode.torch_model.ProcessedFeatures">ProcessedFeatures</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>Processed features containing B, B_cat, categorical features indices, and categorical unique counts.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="torch.Tensor">Tensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Predicted transition points of shape (batch_size, n_transition_points, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.torch_utils" class="doc doc-heading">
+            <code>torch_utils</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.torch_utils.calculate_cat_shape_functions" class="doc doc-heading">
+            <code class="highlight language-python">calculate_cat_shape_functions(processed_features, cat_weights, positive=True)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+processed_features: an instance of ProcessedFeatures
+cat_weights: a dictionary of tensors, each of shape (cat_n_unique_dict, n_properties)
+positive: boolean, whether the output should be positive or not</p>
+<p>Returns:
+output tensor of shape (batch_size, n_properties, n_cat_features)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.torch_utils.calculate_gams" class="doc doc-heading">
+            <code class="highlight language-python">calculate_gams(processed_features, weights, cat_weights, bias, positive=True, sum=False)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the GAMS of the model</p>
+<p>Args:
+B: a pair of input tensors of shape (batch_size, n_cont_features, n_basis_functions) and (batch_size, sum(cat_n_unique_dict))
+weights: input tensor of shape (n_basis_functions, n_cont_features, n_properties)
+cat_weights: a dictionary of tensors, each of shape (cat_n_unique_dict, n_properties)
+bias: input tensor of shape (n_properties)</p>
+<p>Returns:
+output tensor of shape (batch_size, n_properties, n_features + 1) if sum is False else (batch_size, n_properties)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.torch_utils.calculate_shape_functions_for_single_feature" class="doc doc-heading">
+            <code class="highlight language-python">calculate_shape_functions_for_single_feature(b, feature_index, cont_weights, cat_weights, positive=True)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+b: input tensor of shape (batch_size, n_basis_functions) or (batch_size, cat_n_unique) if categorical
+feature_index: integer, index of the feature from [n_features]
+cont_weights: input tensor of shape (n_basis_functions, n_cont_features, n_properties) or (cat_n_unique, n_properties) if categorical</p>
+<p>Returns:
+output tensor of shape (batch_size, n_properties)</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.torch_utils.divide_B_cat_into_blocks" class="doc doc-heading">
+            <code class="highlight language-python">divide_B_cat_into_blocks(processed_features)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Args:
+processed_features: an instance of ProcessedFeatures</p>
+<p>Returns:
+dictionary of tensors, each of shape (batch_size, cat_n_unique_dict)</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.training" class="doc doc-heading">
+            <code>training</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="episode.training.PropertyModuleTrainer" class="doc doc-heading">
+            <code>PropertyModuleTrainer</code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="lightning.LightningModule">LightningModule</span></code></p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="episode.training.PropertyModuleTrainer.prediction_loss" class="doc doc-heading">
+            <code class="highlight language-python">prediction_loss(Y_pred, Y, mask)</code>
+
+</h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the prediction loss.</p>
+<p>Args:
+    Y_pred: predicted values
+    Y: true values
+    mask: mask to apply to the loss</p>
+<p>Returns:
+    prediction loss</p>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="episode.utils" class="doc doc-heading">
+            <code>utils</code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.filter_by_mask" class="doc doc-heading">
+            <code class="highlight language-python">filter_by_mask(array, mask)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Filter the array by the mask</p>
+
+
+<details class="parameters:" open>
+  <summary>Parameters:</summary>
+  <p>array: np.ndarray or list
+    The array to be filtered.
+mask: np.ndarray or list
+    The mask to filter the array by. It should be a boolean array or list of the same length as the array.</p>
+</details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.from_feature_index_to_cont_feature_index" class="doc doc-heading">
+            <code class="highlight language-python">from_feature_index_to_cont_feature_index(feature_index, categorical_features_indices)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convert a feature index to a continuous feature index</p>
+<p>Args:
+feature_index: integer, index of the feature</p>
+<p>Returns:
+output integer</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.get_first_derivative_range" class="doc doc-heading">
+            <code class="highlight language-python">get_first_derivative_range(composition, motif_index, point1, point2, which_point)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculate the first derivative range for a given composition and motif index.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition of the model.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>motif_index</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The index of the motif in the composition.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>point1</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Should be of shape (batch_size, 2) representing the first point.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>point2</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Should be of shape (batch_size, 2) representing the second point.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>which_point</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>Either 'left' or 'right', indicating which side of the motif we are interested in.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span>, <span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span>]</code>
+              –
+              <div class="doc-md-description">
+                <p>Each shape should be (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.get_tensors" class="doc doc-heading">
+            <code class="highlight language-python">get_tensors(device, *args)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convert numpy arrays to torch tensors</p>
+<p>Args:
+args: numpy arrays</p>
+<p>Returns:
+tuple of torch tensors</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.get_train_val_indices" class="doc doc-heading">
+            <code class="highlight language-python">get_train_val_indices(n_samples, train_size=0.8, seed=0)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get the indices for the training and validation sets</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>n_samples</code></b>
+                  (<code>int</code>)
+              –
+              <div class="doc-md-description">
+                <p>The total number of samples.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>train_size</code></b>
+                  (<code>float</code>, default:
+                      <code>0.8</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>The proportion of the dataset to include in the train split (default is 0.8).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>seed</code></b>
+                  (<code>int</code>, default:
+                      <code>0</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>Random seed for reproducibility (default is 0).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+              –
+              <div class="doc-md-description">
+                <p>Two arrays containing the indices for the training and validation sets.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.linalg_solve_multiple_numpy" class="doc doc-heading">
+            <code class="highlight language-python">linalg_solve_multiple_numpy(A, b)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Solve the linear equation Ax = b for multiple right-hand sides.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>A</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Coefficient matrix of shape (m, n, n).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>b</code></b>
+                  (<code><span title="numpy.ndarray">ndarray</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>Right-hand side matrix of shape (m, n).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="numpy.ndarray">ndarray</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Solution matrix of shape (m, n).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.pad_and_mask" class="doc doc-heading">
+            <code class="highlight language-python">pad_and_mask(arrays)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Pads a list of 1D numpy arrays or 1D PyTorch tensors to a 2D array/tensor.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>arrays</code></b>
+                  (<code><span title="typing.Sequence">Sequence</span>[<span title="numpy.ndarray">ndarray</span>] or <span title="typing.Sequence">Sequence</span>[<span title="torch.Tensor">Tensor</span>]</code>)
+              –
+              <div class="doc-md-description">
+                <p>A sequence of 1D numpy arrays or 1D PyTorch tensors to be padded.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Padded 2D array or tensor.</p>
+              </div>
+            </li>
+            <li>
+                  <code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>Mask indicating real entries (1) and padded entries (0).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Raises:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code>ValueError</code>
+              –
+              <div class="doc-md-description">
+                <p>If the input list is empty.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.softmax_numpy" class="doc doc-heading">
+            <code class="highlight language-python">softmax_numpy(x, temperature=1.0)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute the softmax of vector x with a temperature parameter.</p>
+<p>Parameters:
+x (numpy.ndarray): Input data.
+temperature (float): Temperature parameter for scaling.</p>
+<p>Returns:
+numpy.ndarray: Softmax probabilities.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.transform_first_derivative" class="doc doc-heading">
+            <code class="highlight language-python">transform_first_derivative(boundary, composition, raw_first_derivative, transition_points)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Transform the first derivative at the start to the proper range.
+Only used if first derivative at start is predicted from weights.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>boundary</code></b>
+                  (<code>str</code>)
+              –
+              <div class="doc-md-description">
+                <p>Either 'start' or 'end', indicating the boundary of the composition.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition of the model.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>raw_first_derivative</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The raw first derivative.
+Shape should be (batch_size,)</p>
+              </div>
+            </li>
+            <li>
+              <b><code>transition_points</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The transition points of the model.
+Shape should be (batch_size, n_transition_points, 2).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The transformed first derivative at the start.
+Shape should be (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="episode.utils.transform_properties" class="doc doc-heading">
+            <code class="highlight language-python">transform_properties(composition, raw_properties, last_value, first_derivative_at_end)</code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Transform the raw properties to the proper range.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>composition</code></b>
+                  (<code><a class="autorefs autorefs-internal" title="episode.semantic_representation.Composition" href="#episode.semantic_representation.Composition">Composition</a></code>)
+              –
+              <div class="doc-md-description">
+                <p>The composition of the model.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>raw_properties</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The raw properties to transform.
+Shape should be (batch_size, n_properties).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>last_value</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The last value of the trajectory.
+Shape should be (batch_size,).</p>
+              </div>
+            </li>
+            <li>
+              <b><code>first_derivative_at_end</code></b>
+                  (<code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The first derivative at the end of the transition.
+Shape should be (batch_size,).</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Returns:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+                  <code><span title="episode.types.NpArrayOrTensor">NpArrayOrTensor</span></code>
+              –
+              <div class="doc-md-description">
+                <p>The transformed properties.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+  </div>
+
+    </div>
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
