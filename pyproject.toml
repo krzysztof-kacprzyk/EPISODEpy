@@ -23,5 +23,5 @@ dependencies = [
 requires-python = ">=3.9"
 
 [project.urls]
-Homepage = "https://krzysztof-kacprzyk.github.io/EPISODEpy"
+Homepage = "https://github.com/krzysztof-kacprzyk/EPISODEpy"
 
