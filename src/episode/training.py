@@ -104,10 +104,11 @@ class PropertyModuleTrainer(L.LightningModule):
 
     def configure_optimizers(self):
         optimizer_class = self.config.optimizer
-        if 'lr' in self.config.optimizer_params:
+        params = copy.deepcopy(self.config.optimizer_params)
+        if 'lr' in params.keys():
             logging.warning("Learning rate specified in both config.lr and config.optimizer_params['lr']. Using config.lr.")
-        self.config.optimizer_params['lr'] = self.lr
-        optimizer = optimizer_class(self.model.parameters(), **self.config.optimizer_params)
+        params['lr'] = self.lr
+        optimizer = optimizer_class(self.model.parameters(), **params)
         # optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=self.config['weight_decay'])
         # optimizer = torch.optim.LBFGS(self.model.parameters(), lr=self.lr, history_size=100, max_iter=20, line_search_fn='strong_wolfe')
         # params=list()
