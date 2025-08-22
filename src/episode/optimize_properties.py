@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 from typing import Callable, Tuple, Union
 import numpy as np
-from EPISODEpy.semantic_representation import Composition, Properties
+from episode.semantic_representation import Composition, Properties
 from scipy.optimize import minimize
-from EPISODEpy.utils import sigmoid_numpy, softmax_numpy, softplus_numpy
-from EPISODEpy.trajectory_predictor import C0TrajectoryPredictor
-from EPISODEpy import constants
+from episode.utils import sigmoid_numpy, softmax_numpy, softplus_numpy
+from episode.trajectory_predictor import C0TrajectoryPredictor
+from episode import constants
 
 
 class OptimizationAlgorithm(ABC):

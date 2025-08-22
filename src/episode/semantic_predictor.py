@@ -1,11 +1,11 @@
-from EPISODEpy.composition_map import CompositionMapBase, NDCompositionMapBase
-from EPISODEpy.semantic_representation import SemanticRepresentation, Composition
-from EPISODEpy.property_map import SinglePropertyMap, PropertyMapBase, NDPropertyMapBase
-from EPISODEpy import utils
+from episode.composition_map import CompositionMapBase, NDCompositionMapBase
+from episode.semantic_representation import SemanticRepresentation, Composition
+from episode.property_map import SinglePropertyMap, PropertyMapBase, NDPropertyMapBase
+from episode import utils
 import numpy as np
 import matplotlib.pyplot as plt
-from EPISODEpy.dataset import FeatureDataset
-from EPISODEpy.types import NpArrayOrList
+from episode.dataset import FeatureDataset
+from episode.types import NpArrayOrList
 
 
 class NDSemanticPredictor:

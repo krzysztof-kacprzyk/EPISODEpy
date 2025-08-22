@@ -1,5 +1,5 @@
 import torch
-from EPISODEpy import utils
+from episode import utils
 
 
 def divide_B_cat_into_blocks(processed_features):

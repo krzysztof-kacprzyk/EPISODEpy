@@ -1,8 +1,8 @@
 import pytest
-from EPISODEpy.optimize_properties import create_dictionary
-from EPISODEpy.semantic_representation import Composition
+from episode.optimize_properties import create_dictionary
+from episode.semantic_representation import Composition
 import numpy as np
-from EPISODEpy.optimize_properties import from_parameters_to_raw_properties
+from episode.optimize_properties import from_parameters_to_raw_properties
 
 def test_create_dictionary_bounded_composition_x0_not_specified():
     # Mock the Composition object

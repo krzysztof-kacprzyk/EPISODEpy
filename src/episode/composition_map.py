@@ -1,18 +1,18 @@
 from __future__ import annotations
-from EPISODEpy.semantic_representation import Composition
+from episode.semantic_representation import Composition
 from typing import Sequence, Tuple
 import numpy as np
-from EPISODEpy.types import NpArrayOrList
-from EPISODEpy.decision_tree import DecisionTreeClassifier
-from EPISODEpy import utils
+from episode.types import NpArrayOrList
+from episode.decision_tree import DecisionTreeClassifier
+from episode import utils
 from copy import deepcopy
 import multiprocessing
 import itertools
 from tqdm import tqdm
-from EPISODEpy.optimize_properties import calculate_score, ScipyOptimizationAlgorithm
-from EPISODEpy import constants
-from EPISODEpy.dataset import FeatureDataset
-from EPISODEpy.config import DecisionTreeConfig
+from episode.optimize_properties import calculate_score, ScipyOptimizationAlgorithm
+from episode import constants
+from episode.dataset import FeatureDataset
+from episode.config import DecisionTreeConfig
 import pandas as pd
 import os
 from abc import ABC, abstractmethod

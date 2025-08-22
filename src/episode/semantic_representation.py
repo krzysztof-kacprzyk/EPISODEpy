@@ -1,7 +1,7 @@
 from typing import Tuple, Union, Sequence, Self
 import numpy as np
 import torch
-from EPISODEpy.infinite_motifs import get_default_motif_class
+from episode.infinite_motifs import get_default_motif_class
 
 class Composition:
     def __init__(self, motifs: Tuple[str, ...]):

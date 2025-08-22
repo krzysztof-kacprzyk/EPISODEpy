@@ -6,8 +6,8 @@ import numpy.typing as npt
 from numba import jit, njit
 import torch
 from array_api_compat import array_namespace, is_numpy_namespace
-from EPISODEpy.types import NpArrayOrList, NpArrayOrTensor, ArrayOrList
-from EPISODEpy.semantic_representation import Composition
+from episode.types import NpArrayOrList, NpArrayOrTensor, ArrayOrList
+from episode.semantic_representation import Composition
 
 
 

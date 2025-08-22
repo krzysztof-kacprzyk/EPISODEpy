@@ -1,20 +1,20 @@
 from __future__ import annotations
 import numpy as np
 import torch
-from EPISODEpy.semantic_representation import Composition, Properties
-from EPISODEpy.torch_model import FullModel, TransitionPointModule
+from episode.semantic_representation import Composition, Properties
+from episode.torch_model import FullModel, TransitionPointModule
 from abc import ABC, abstractmethod
-from EPISODEpy.gam import GAM, ShapeFunction
-from EPISODEpy import utils
+from episode.gam import GAM, ShapeFunction
+from episode import utils
 from typing import Sequence, Callable, Tuple, Mapping
-from EPISODEpy.torch_model import PropertyModule
-from EPISODEpy.composition_map import CompositionMapBase
-from EPISODEpy.dataset import FeatureDataset
-from EPISODEpy.types import NpArrayOrList
-from EPISODEpy.basis import BasisFunctions, OneHotBasisFunctions
-from EPISODEpy.config import PropertyMapConfig, TorchTrainerConfig
-from EPISODEpy.training import fit_property_module, PropertyModuleTrainer
-from EPISODEpy.trajectory_predictor import C0TrajectoryPredictor
+from episode.torch_model import PropertyModule
+from episode.composition_map import CompositionMapBase
+from episode.dataset import FeatureDataset
+from episode.types import NpArrayOrList
+from episode.basis import BasisFunctions, OneHotBasisFunctions
+from episode.config import PropertyMapConfig, TorchTrainerConfig
+from episode.training import fit_property_module, PropertyModuleTrainer
+from episode.trajectory_predictor import C0TrajectoryPredictor
 
 
 class NDPropertyMapBase(ABC):

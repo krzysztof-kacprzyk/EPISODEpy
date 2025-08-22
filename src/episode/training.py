@@ -1,17 +1,17 @@
 import lightning as L
 import torch
 import os
-from EPISODEpy.torch_model import FullModel, ProcessedFeatures
+from episode.torch_model import FullModel, ProcessedFeatures
 from typing import Tuple
-from EPISODEpy.semantic_representation import Composition
+from episode.semantic_representation import Composition
 from lightning.pytorch.callbacks import ModelCheckpoint, EarlyStopping
 from datetime import datetime
 import numpy as np
-from EPISODEpy import utils
+from episode import utils
 import optuna
 import logging
 import copy
-from EPISODEpy.config import TorchTrainerConfig
+from episode.config import TorchTrainerConfig
 
 class PropertyModuleTrainer(L.LightningModule):
 

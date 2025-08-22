@@ -1,13 +1,13 @@
 import torch
 import numpy as np
-from EPISODEpy import utils
-from EPISODEpy import torch_utils
-from EPISODEpy import constants
-from EPISODEpy.infinite_motifs import get_default_motif_class
-from EPISODEpy.semantic_representation import Properties, Composition
-from EPISODEpy.trajectory_predictor import C0TrajectoryPredictor
-from EPISODEpy.constants import MIN_TRANSITION_POINT_SEP
-from EPISODEpy.config import TorchTrainerConfig
+from episode import utils
+from episode import torch_utils
+from episode import constants
+from episode.infinite_motifs import get_default_motif_class
+from episode.semantic_representation import Properties, Composition
+from episode.trajectory_predictor import C0TrajectoryPredictor
+from episode.constants import MIN_TRANSITION_POINT_SEP
+from episode.config import TorchTrainerConfig
 
 def torch_inverse_softplus(x):
     # Above 20, the softplus is approximately equal to the input

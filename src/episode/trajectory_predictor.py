@@ -1,13 +1,13 @@
 from abc import abstractmethod
-from EPISODEpy.semantic_representation import SemanticRepresentation, Properties, Composition
+from episode.semantic_representation import SemanticRepresentation, Properties, Composition
 from typing import Sequence, Union
 import numpy as np
 import torch
-import EPISODEpy.utils as utils
-from EPISODEpy import cubic
-from EPISODEpy.infinite_motifs import get_default_motif_class
+import episode.utils as utils
+from episode import cubic
+from episode.infinite_motifs import get_default_motif_class
 from numba import jit
-from EPISODEpy.types import NpArrayOrTensor, ArrayOrList
+from episode.types import NpArrayOrTensor, ArrayOrList
 from array_api_compat import array_namespace, is_numpy_namespace
 
 

@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
-from EPISODEpy.dataset import FeatureDataset
-from EPISODEpy.types import NpArrayOrList
-from EPISODEpy.semantic_predictor import SemanticPredictor, NDSemanticPredictor
-from EPISODEpy.trajectory_predictor import TrajectoryPredictorBase
+from episode.dataset import FeatureDataset
+from episode.types import NpArrayOrList
+from episode.semantic_predictor import SemanticPredictor, NDSemanticPredictor
+from episode.trajectory_predictor import TrajectoryPredictorBase
 
 
 

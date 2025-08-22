@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 
-from EPISODEpy.utils import pad_and_mask
+from episode.utils import pad_and_mask
 
 try:
     import torch

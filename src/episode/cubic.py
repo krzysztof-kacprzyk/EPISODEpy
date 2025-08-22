@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from array_api_compat import array_namespace
-from EPISODEpy.types import NpArrayOrTensor
+from episode.types import NpArrayOrTensor
 
 def evaluate_cubic(coefficients: NpArrayOrTensor, x: NpArrayOrTensor, derivative_order: int = 0) -> NpArrayOrTensor:
     """

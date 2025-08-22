@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Self, Sequence
-from EPISODEpy.semantic_representation import Composition
+from episode.semantic_representation import Composition
 from copy import deepcopy
 class ConfigBase:
     """
