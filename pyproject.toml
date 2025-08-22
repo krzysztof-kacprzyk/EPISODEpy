@@ -20,7 +20,6 @@ dependencies = [
     "torch >= 2.0.0",
     "lightning >= 2.0.0",
 ]
-requires-python = ">=3.9"
 
 [project.urls]
 Homepage = "https://github.com/krzysztof-kacprzyk/EPISODEpy"
